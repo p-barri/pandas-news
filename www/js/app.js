@@ -80,5 +80,5 @@ angular.module('pandasNews', ['ionic', 'pandasNews.controllers'])
   })
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/news/list');
+  $urlRouterProvider.otherwise('/app/news/list');
 });

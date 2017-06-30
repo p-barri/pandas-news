@@ -1,13 +1,13 @@
 /**
  * Created by muevetoto on 30/06/17.
  */
-angular.module("pandasNews").factory('newsService', ['$http', '$q', function ($http, $q) {
-  var key = "d5a229dbf07145a082fe3d48f1e12f91";
+angular.module("pandasNews").factory('newsService', ['$http', '$httpParamSerializer', '$q', function ($http, $httpParamSerializer, $q) {
 
   function findNews(filter, page, limit) {
-    var url = "https://newsapi.org/v1/articles?source=google-news&sortBy=top&apiKey=" + key;
+    var url = "http://74.207.253.57/hanga_test/api/public";
+    var query = $httpParamSerializer({q: filter, max: limit, page: page});
     var deferer = $q.defer();
-    $http.get(url).then(function (data) {
+    $http.get(url+ "?" + query ).then(function (data) {
       deferer.resolve(data);
     }, function () {
       deferer.reject();

@@ -1,1 +1,20 @@
 /* Empty. Add your own CSS if you like */
+.item-body{
+    padding: 0px;
+}
+.card{
+    margin: 20px 0px;
+}
+.item-description{
+    margin: 20px 10px;
+}
+
+.bar-stable.bar.bar-header {
+    background-color: #CDE6F3;
+    color: #0C4154;
+}
+
+.bar.bar-stable .title,
+.bar.bar-stable .button.button-clear{
+    color: #0C4154;
+}
