@@ -9,10 +9,10 @@ angular.module('pandasNews.controllers')
         newsService.findNews(filter).then(function(data){
           $scope.newsList = data.data;
         });
-      }
+      };
       $scope.toggleFilter = function(){
         $scope.showFilter = !$scope.showFilter;
-      }
+      };
 
       newsService.findNews().then(function(data){
         $scope.newsList = data.data;

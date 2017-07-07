@@ -1,6 +1,18 @@
-angular.module('pandasNews.controllers', [])
+angular.module('pandasNews.controllers', ['ionic.cloud'])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
+.controller('AppCtrl', function($scope, $ionicModal, $timeout, $ionicPush) {
+    $ionicPush.register().then(function(t) {
+        $scope.token = t;
+        return $ionicPush.saveToken(t);
+    }).then(function(t) {
+        $scope.token = t;
+        console.log('Token saved:', t.token);
+    });
+
+    $scope.$on('cloud:push:notification', function(event, data) {
+        var msg = data.message;
+        console.log(msg.title + ': ' + msg.text + '. Token: ' + $scope.token);
+    });
 
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.

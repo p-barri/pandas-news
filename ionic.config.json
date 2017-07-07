@@ -1,6 +1,6 @@
 {
   "name": "pandas-news",
-  "app_id": "",
+  "app_id": "830cabcc",
   "type": "ionic1",
   "watchPatterns": [
     "scss/**/*"

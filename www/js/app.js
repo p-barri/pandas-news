@@ -22,7 +22,24 @@ angular.module('pandasNews', ['ionic', 'pandasNews.controllers'])
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider, $ionicCloudProvider) {
+  $ionicCloudProvider.init({
+      "core": {
+          "app_id": "830cabcc"
+      },
+      "push": {
+          "sender_id": "599866640843",
+          "pluginConfig": {
+              "ios": {
+                  "badge": true,
+                  "sound": true
+              },
+              "android": {
+                  "iconColor": "#343434"
+              }
+          }
+      }
+  });
   $stateProvider
 
     .state('app', {
@@ -77,7 +94,7 @@ angular.module('pandasNews', ['ionic', 'pandasNews.controllers'])
         controller: 'NewsListCtrl'
       }
     }
-  })
+  });
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/news/list');
